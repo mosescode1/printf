@@ -1,13 +1,12 @@
 #include "main.h"
 #include <string.h>
-int _length_m(const char *str)
+#include <unistd.h>
+int _length_m(char *str)
 {
+	int m = 0;
 
-	if (str != NULL)
-        {	
-		int mstrnlen = (int)strlen(str);
-                return (mstrnlen);
-        }
-	return (-1);
-
+	while (str[m] != '\0')
+		m++;
+        write(1, str,m);
+	return (m);
 }

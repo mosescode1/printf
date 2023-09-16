@@ -28,16 +28,16 @@ int _printf(const char *format, ...)
 		if (*format != '%')
 		{
 			write(1, format, 1);
-			g_strint_cnt = 0;
+			g_strint_cnt++;
 		}
 		else
 		{
 			format++;
+			if (*format == '\0')
+                                break;
 			if (*format == '%')
 				_mputchar(*format);
-			if (*format == '\0')
-				break;
-			if (*format == 'c')
+			else if (*format == 'c')
 			{
 				int g_c = va_arg(m_list, int);
 
@@ -46,11 +46,11 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 's')
 			{
-				const char *m_string_c = va_arg(m_list, const char*);
-
-				_length_m(m_string_c);
-				g_strint_cnt++;
+				int len = _length_m(va_arg(m_list, char*));
+	
+				g_strint_cnt += len;
 			}
+			
 		}
 		format++;
 	}
