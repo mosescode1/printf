@@ -1,6 +1,6 @@
 #include "main.h"
 
-/*
+/**
  * _printf - main function for printing
  * @format: strings to be printed out to stdio
  * @...: list of Rgument
@@ -11,11 +11,10 @@ int _printf(const char *format, ...)
 {
 	if (format == NULL)
 		return (-1);
-
 	va_list m_list;
+	int g_strint_cnt = 0;
 
-	int g_strint-cnt = 0;
-	va_start(m_list,format);
+	va_start(m_list, format)
 
 	while (*format)
 	{
@@ -28,12 +27,20 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == '\0')
 				break;
-
-			if (format == 'c')
+			if (*format == 'c')
 			{
-				int g-c = va_arg(m_list, int);
-				write(1, &g-c, (strlen(&g-c) - 1));
-				g_strint-cnt++;
+				int g_c = va_arg(m_list, int);
+
+				write(1, &g_c, 1);
+				g_strint_cnt++;
 			}
-			else if (
-		
+			else if (*format == 's')
+			{
+				char m_string_c = va_arg(m_list, char);
+
+				write(1, &m_string_c, (strlen(&m_string_c) - 1));
+				g_strint_cnt++;
+			}
+		}
+	}
+}
