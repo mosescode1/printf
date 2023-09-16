@@ -43,5 +43,7 @@ int _printf(const char *format, ...)
 			}
 		}
 	}
+	format++;
 	va_end(m_list);
+	return (g_strint_cnt);
 }
