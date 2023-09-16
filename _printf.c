@@ -1,4 +1,7 @@
 #include "main.h"
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
 
 /**
  * _printf - main function for printing
@@ -9,18 +12,22 @@
 
 int _printf(const char *format, ...)
 {
+	unsigned int g_strint_cnt;
+	
+	va_list m_list;
+
+	g_strint_cnt = 0;
+
 	if (format == NULL)
 		return (-1);
-	va_list m_list;
-	int g_strint_cnt = 0;
-
-	va_start(m_list, format)
+	va_start(m_list, format);
 
 	while (*format)
 	{
 		if (*format != '%')
 		{
-			wrtie(1, &g_string, 1);
+			write(1, format, 1);
+			g_strint_cnt = 0;
 		}
 		else
 		{
@@ -31,15 +38,18 @@ int _printf(const char *format, ...)
 			{
 				int g_c = va_arg(m_list, int);
 
-				write(1, &g_c, 1);
+				_mputchar(g_c);
 				g_strint_cnt++;
 			}
 			else if (*format == 's')
 			{
-				char m_string_c = va_arg(m_list, char);
-
-				write(1, &m_string_c, 1);
-				g_strint_cnt++;
+				const char *m_string_c = va_arg(m_list, const char*);
+				
+				if (m_string_c != NULL)
+				{
+					int mstrnlen = (int)strlen(m_string_c);
+					return (mstrnlen);
+				}
 			}
 		}
 		format++;
