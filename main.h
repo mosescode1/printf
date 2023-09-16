@@ -3,6 +3,7 @@
 /**Guard Included**/
 #include <string.h>
 #include <stdarg.h>
+#include <unistd.h>
 /**
 * _printf - function for printing
 * @format: formated string to be printed
@@ -11,4 +12,4 @@
 */
 
 int _printf(const char *format, ...);
-#endif MAIN_H
+#endif
