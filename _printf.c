@@ -14,7 +14,7 @@
 int _printf(const char *format, ...)
 {
 	unsigned int g_strint_cnt;
-	
+
 	va_list m_list;
 
 	g_strint_cnt = 0;
@@ -33,6 +33,8 @@ int _printf(const char *format, ...)
 		else
 		{
 			format++;
+			if (*format == '%')
+				_mputchar(*format);
 			if (*format == '\0')
 				break;
 			if (*format == 'c')
@@ -47,8 +49,8 @@ int _printf(const char *format, ...)
 				const char *m_string_c = va_arg(m_list, const char*);
 
 				_length_m(m_string_c);
+				g_strint_cnt++;
 			}
-				
 		}
 		format++;
 	}
