@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 	{
 		if (*format != '%')
 		{
-			wrtie(1, &g_string, strlen(&g_string));
+			wrtie(1, &g_string, 1);
 		}
 		else
 		{
@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 			{
 				char m_string_c = va_arg(m_list, char);
 
-				write(1, &m_string_c, (strlen(&m_string_c) - 1));
+				write(1, &m_string_c, 1);
 				g_strint_cnt++;
 			}
 		}
