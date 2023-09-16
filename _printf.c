@@ -45,13 +45,10 @@ int _printf(const char *format, ...)
 			else if (*format == 's')
 			{
 				const char *m_string_c = va_arg(m_list, const char*);
-				
-				if (m_string_c != NULL)
-				{
-					int mstrnlen = (int)strlen(m_string_c);
-					return (mstrnlen);
-				}
+
+				_length_m(m_string_c);
 			}
+				
 		}
 		format++;
 	}
