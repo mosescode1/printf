@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			if (*format == '\0')
-                                break;
+				break;
 			if (*format == '%')
 				_mputchar(*format);
 			else if (*format == 'c')
@@ -47,10 +47,10 @@ int _printf(const char *format, ...)
 			else if (*format == 's')
 			{
 				int len = _length_m(va_arg(m_list, char*));
-	
+
 				g_strint_cnt += len;
 			}
-			
+
 		}
 		format++;
 	}
