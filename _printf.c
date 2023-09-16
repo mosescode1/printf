@@ -14,6 +14,7 @@
 int _printf(const char *format, ...)
 {
 	unsigned int g_strint_cnt;
+	char per_di[20]; 
 
 	va_list m_list;
 
@@ -36,12 +37,13 @@ int _printf(const char *format, ...)
 			if (*format == '\0')
 				break;
 			if (*format == '%')
+			{
 				_mputchar(*format);
+				g_strint_cnt++;
+			}
 			else if (*format == 'c')
 			{
-				int g_c = va_arg(m_list, int);
-
-				_mputchar(g_c);
+				_mputchar(va_arg(m_list, int));
 				g_strint_cnt++;
 			}
 			else if (*format == 's')
@@ -50,7 +52,13 @@ int _printf(const char *format, ...)
 
 				g_strint_cnt += len;
 			}
-
+			else if (*format == 'd' || *format == 'i')
+			{
+				int d_num = va_arg(m_list, int);
+				snprintf(per_di, sizeof(per_di), "%d", d_num);
+				write(1, per_di, strlen(per_di));
+				g_strint_cnt += strlen(per_di);
+			}	
 		}
 		format++;
 	}
