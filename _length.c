@@ -3,10 +3,11 @@
 #include <unistd.h>
 int _length_m(char *str)
 {
-	int m = 0;
-
-	while (str[m] != '\0')
-		m++;
-        write(1, str,m);
-	return (m);
+	if (str != NULL)
+        {
+                int mstrnlen = (int)strlen(str);
+		write(1, str, mstrnlen);
+                return (mstrnlen);
+        }
+        return (-1);
 }
