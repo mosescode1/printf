@@ -70,7 +70,7 @@ Your code will be compiled this way:
 
 ```sh
 $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c
-
+````
 ### Tasks
 
 # Custom Printf Function
@@ -119,7 +119,7 @@ int main(void)
     printf("Unknown:[%r]\n");
     return (0);
 }
-
+````
 
 #### 0. I'm not going anywhere. You can print that wherever you want to. I'm here and I'm a Spur for life
 
