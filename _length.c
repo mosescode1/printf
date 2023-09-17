@@ -17,5 +17,8 @@ int _length_m(char *str)
 		write(1, str, mstrnlen);
 		return (mstrnlen);
 	}
-	return (-1);
+	else
+	{
+		return (-1);
+	}
 }
