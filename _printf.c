@@ -13,7 +13,7 @@
 int _printf(const char *format, ...);
 int _printf(const char *format, ...)
 {
-	unsigned int g_strint_cnt;
+	unsigned int g_strint_cnt, _str_length;
 	char per_di[20];
 
 	va_list m_list;
@@ -43,19 +43,29 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 'c')
 			{
-				char asci = va_arg(m_list, int);
-
-				if (asci >= 32 && asci <= 126)
-					_mputchar(asci);
-				else
-					return (-1);
+				_mputchar(va_arg(m_list, int));
 				g_strint_cnt++;
 			}
 			else if (*format == 's')
 			{
-				int len = _length_m(va_arg(m_list, char*));
+				char *sttp = va_arg(m_list, char*);
 
-				g_strint_cnt += len;
+				if (sttp == NULL)
+				{
+					write(1, "(null)", 6);
+					g_strint_cnt += 6;
+				}
+				else
+				{
+					_str_length = 0;
+
+					while (sttp[_str_length] != '\0')
+					{
+						write(1, &sttp[_str_length], 1);
+						_str_length++;
+					}
+					g_strint_cnt += _str_length;
+				}
 			}
 			else if (*format == 'd' || *format == 'i')
 			{
