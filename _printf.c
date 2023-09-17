@@ -63,7 +63,7 @@ int _printf(const char *format, ...)
 			else
 			{
 				char m_error[7];
-				int m_err_len = snprintf(m_error, sizeof(m_error), "%%c", *format);
+				int m_err_len = snprintf(m_error, sizeof(m_error), "%%%c", *format);
 
 				write(1, m_error, m_err_len);
 				g_strint_cnt += m_err_len;
