@@ -44,6 +44,7 @@ int _printf(const char *format, ...)
 			else if (*format == 'c')
 			{
 				char asci = va_arg(m_list, int);
+
 				if (asci >= 32 && asci <= 126)
 					_mputchar(asci);
 				else
