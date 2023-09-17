@@ -60,6 +60,14 @@ int _printf(const char *format, ...)
 				write(1, per_di, strlen(per_di));
 				g_strint_cnt += strlen(per_di);
 			}
+			else
+			{
+				char m_error[7];
+				int m_err_len = snprintf(m_error, sizeof(m_error), "%%c", *format);
+
+				write(1, m_error, m_err_len);
+				g_strint_cnt += m_err_len;
+			}
 		}
 		format++;
 	}
