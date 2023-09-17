@@ -10,15 +10,16 @@
 
 int _length_m(char *str)
 {
-	if (str != NULL)
-	{
-		int mstrnlen = (int)strlen(str);
+		if (str != NULL)
+		{
+			int mstrnlen = (int)strlen(str);
 
-		write(1, str, mstrnlen);
-		return (mstrnlen);
-	}
-	else
-	{
-		return (-1);
-	}
+			write(1, str, mstrnlen);
+			return (mstrnlen);
+		}
+		else
+		{
+			return (-1);
+		}
+	return (0);
 }
