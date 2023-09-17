@@ -43,7 +43,11 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 'c')
 			{
-				_mputchar(va_arg(m_list, int));
+				char asci = va_arg(m_list, int);
+				if (asci >= 32 && asci <= 126)
+					_mputchar(asci);
+				else
+					return (-1);
 				g_strint_cnt++;
 			}
 			else if (*format == 's')
