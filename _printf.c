@@ -13,7 +13,7 @@
 int _printf(const char *format, ...);
 int _printf(const char *format, ...)
 {
-	unsigned int g_strint_cnt, _str_length;
+	unsigned int g_strint_cnt;
 	char per_di[20];
 
 	va_list m_list;
@@ -50,22 +50,7 @@ int _printf(const char *format, ...)
 			{
 				char *sttp = va_arg(m_list, char*);
 
-				if (sttp == NULL)
-				{
-					write(1, "(null)", 6);
-					g_strint_cnt += 6;
-				}
-				else
-				{
-					_str_length = 0;
-
-					while (sttp[_str_length] != '\0')
-					{
-						write(1, &sttp[_str_length], 1);
-						_str_length++;
-					}
-					g_strint_cnt += _str_length;
-				}
+				_stringcheck(sttp);
 			}
 			else if (*format == 'd' || *format == 'i')
 			{
