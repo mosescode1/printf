@@ -43,7 +43,7 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 'c')
 			{
-				int chars = va_arg(m_list, int));
+				int chars = va_arg(m_list, int);
 
 				write(1, &chars, 1);
 				g_strint_cnt++;
