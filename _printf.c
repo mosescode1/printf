@@ -51,7 +51,7 @@ int _printf(const char *format, ...)
 				char *sttp = va_arg(m_list, char*);
 
 				if (sttp == NULL)
-				{    
+				{
 					write(1, "(null)", strlen("(null)"));
 					g_strint_cnt += strlen("(null)");
 				}
