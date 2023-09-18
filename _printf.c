@@ -15,7 +15,7 @@
 int _printf(const char *format, ...);
 int _printf(const char *format, ...)
 {
-	unsigned int g_strint_cnt, _str_length;
+	int g_strint_cnt, _str_length;
 	char per_di[20];
 
 	va_list m_list;
@@ -45,7 +45,7 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 'c')
 			{
-				int chars = va_arg(m_list, int);
+				char chars = va_arg(m_list, int);
 
 				write(1, &chars, 1);
 				g_strint_cnt++;
