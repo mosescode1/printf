@@ -56,7 +56,8 @@ int _printf(const char *format, ...)
 
 				if (sttp == NULL)
 				{
-					return (*sttp);
+					write(1,"(NULL)", 1);
+					g_strint_cnt++;
 				}
 				else
 				{
