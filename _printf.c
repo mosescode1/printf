@@ -1,9 +1,10 @@
 #include "main.h"
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
 #include <stdarg.h>
 #include <stddef.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
 * _printf - main function for printing
