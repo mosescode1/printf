@@ -56,8 +56,7 @@ int _printf(const char *format, ...)
 
 				if (sttp == NULL)
 				{
-					write(1, "(null)", strlen("(null)"));
-					g_strint_cnt += strlen("(null)");
+					return (-1);
 				}
 				else
 				{
@@ -65,7 +64,7 @@ int _printf(const char *format, ...)
 
 					while (sttp[_str_length] != '\0')
 					{
-						write(1, sttp[_str_length], 1);
+						write(1, &sttp[_str_length], 1);
 						_str_length++;
 					}
 						g_strint_cnt += _str_length;
