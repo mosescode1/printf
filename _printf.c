@@ -38,12 +38,14 @@ int _printf(const char *format, ...)
 				break;
 			if (*format == '%')
 			{
-				_mputchar(*format);
+				write(1, format, 1);
 				g_strint_cnt++;
 			}
 			else if (*format == 'c')
 			{
-				_mputchar(va_arg(m_list, int));
+				int chars = va_arg(m_list, int));
+
+				write(1, &chars, 1);
 				g_strint_cnt++;
 			}
 			else if (*format == 's')
