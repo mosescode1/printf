@@ -77,7 +77,7 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				char m_error[7];
+				char m_error[6];
 				int m_err_len = snprintf(m_error, sizeof(m_error), "%%%c", *format);
 
 				write(1, m_error, m_err_len);
