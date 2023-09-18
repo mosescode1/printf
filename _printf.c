@@ -50,7 +50,21 @@ int _printf(const char *format, ...)
 			{
 				char *sttp = va_arg(m_list, char*);
 
-				_stringcheck(sttp);
+				if (sttp == NULL)
+				{
+					write(1, "(null)", 6);
+					g_strint_cnt += 6;
+				}
+				else
+				{
+					_str_length = 0;
+					while (sttp[_str_length] != '\0')
+					{
+						write(1, &sttp[_str_length], 1);
+						_str_length++;
+					}
+						g_strint_cnt += _str_length;
+					}
 			}
 			else if (*format == 'd' || *format == 'i')
 			{
