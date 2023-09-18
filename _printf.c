@@ -56,7 +56,7 @@ int _printf(const char *format, ...)
 
 				if (sttp == NULL)
 				{
-					write(1, "(NULL)", 6);
+					write(1, "(null)", 6);
 					g_strint_cnt += 6;
 				}
 				else
