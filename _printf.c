@@ -56,7 +56,7 @@ int _printf(const char *format, ...)
 
 				if (sttp == NULL)
 				{
-					return (-1);
+					return (*sttp);
 				}
 				else
 				{
