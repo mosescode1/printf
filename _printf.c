@@ -22,7 +22,7 @@ int _printf(const char *format, ...)
 
 	g_strint_cnt = 0;
 
-	if (format == NULL)
+	if (format == NULL || format[0] == '\0')
 		return (-1);
 	va_start(m_list, format);
 
@@ -41,7 +41,7 @@ int _printf(const char *format, ...)
 			if (*format == '%')
 			{
 				write(1, format, 1);
-				g_strint_cnt++;
+				/**g_strint_cnt++;**/
 			}
 			else if (*format == 'c')
 			{
